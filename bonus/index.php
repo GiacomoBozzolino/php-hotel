@@ -6,7 +6,9 @@
         foreach($hotels as $hotel){
             if($hotel['parking'] == filter_var ($_GET['parking'], FILTER_VALIDATE_BOOLEAN)){
                 $temp_array[] = $hotel;
-            } 
+            } else if($_GET['parking'] == '0'){
+                $temp_array = $hotels;
+            }
         }
 
         $hotels = $temp_array;
@@ -39,16 +41,17 @@
                             <h1 >
                                 Booladvisor
                             </h1>
-                            <form action="index.php" method="get">
-                                <div class="form-group">
-                                    <label for="parking">Parcheggio</label>
-                                    <select name="parking" id="parking">
+                            <form  class="form-label d-flex align-items-center" action="index.php" method="get">
+                                <div class="form-group align-items-center d-flex px-2" >
+                                    <label  class="px-2" for="parking">Parcheggio</label>
+                                    <select class="form-select" name="parking" id="parking">
+                                        <option value="0" selected> Scegli</option>
                                         <option value="1">si</option>
                                         <option value="2">no</option>
                                     </select>
                                 </div>
-                                <div>
-                                    <button type="submit" class="btn btn-sm btn-sucess">Filtra</button>
+                                <div class="form-label pt-2 ">
+                                    <button type="submit" class="btn btn-md btn-success">Filtra</button>
                                 </div>
                             </form>
                         </div>
