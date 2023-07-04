@@ -10,10 +10,26 @@
                 $temp_array = $hotels;
             }
         }
-
-        $hotels = $temp_array;
-       
+        $hotels = $temp_array; 
     };
+
+    if(isset($_GET['vote'])){
+
+        $rating = $_GET['vote'];
+        
+        $temp_array = [];
+        foreach ($hotels as $hotel){
+            if($hotel['vote'] == $_GET['vote']){
+                $temp_array [] = $hotel;
+
+            }
+            elseif($_GET['vote'] == '0'){
+                 $temp_array = $hotels;
+            }
+        } 
+        $hotels = $temp_array ;
+    }
+    
 
 
 
@@ -50,9 +66,25 @@
                                         <option value="2">no</option>
                                     </select>
                                 </div>
+                                <div class=" form-group align-items-center d-flex px-2">
+                                    <label  class="px-2 ">Punteggio:</label>
+                                    <select class="form-select"  name="vote">
+                                            <option value="0" selected>Scegli</option>
+                                            <option value="1">1 </option>
+                                            <option value="2">2 </option>
+                                            <option value="3">3 </option>
+                                            <option value="4">4 </option>
+                                            <option value="5">5 </option>
+                                    </select>
+                                </div>
+
                                 <div class="form-label pt-2 ">
                                     <button type="submit" class="btn btn-md btn-success">Filtra</button>
                                 </div>
+
+
+
+
                             </form>
                         </div>
                     </div>
