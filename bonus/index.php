@@ -1,5 +1,20 @@
 <?php
     include __DIR__."/partials/array.php";
+
+    if (isset($_GET['parking'])){
+        $temp_array =[];
+        foreach($hotels as $hotel){
+            if($hotel['parking'] == filter_var ($_GET['parking'], FILTER_VALIDATE_BOOLEAN)){
+                $temp_array[] = $hotel;
+            } 
+        }
+
+        $hotels = $temp_array;
+       
+    };
+
+
+
 ?>
 
 
@@ -20,10 +35,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="pt-3">
+                        <div class="pt-3 d-flex justify-content-between">
                             <h1 >
                                 Booladvisor
                             </h1>
+                            <form action="index.php" method="get">
+                                <div class="form-group">
+                                    <label for="parking">Parcheggio</label>
+                                    <select name="parking" id="parking">
+                                        <option value="1">si</option>
+                                        <option value="2">no</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-sm btn-sucess">Filtra</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
