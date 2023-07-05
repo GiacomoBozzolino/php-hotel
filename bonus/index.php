@@ -19,9 +19,8 @@
         
         $temp_array = [];
         foreach ($hotels as $hotel){
-            if($hotel['vote'] == $_GET['vote']){
+            if($hotel['vote'] >= $_GET['vote']){
                 $temp_array [] = $hotel;
-
             }
             elseif($_GET['vote'] == '0'){
                  $temp_array = $hotels;
