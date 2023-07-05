@@ -4,7 +4,7 @@
     if (isset($_GET['parking'])){
         $temp_array =[];
         foreach($hotels as $hotel){
-            if($hotel['parking'] == filter_var ($_GET['parking'], FILTER_VALIDATE_BOOLEAN)){
+            if($hotel['parking'] === filter_var ($_GET['parking'], FILTER_VALIDATE_BOOLEAN)){
                 $temp_array[] = $hotel;
             } else if($_GET['parking'] == '0'){
                 $temp_array = $hotels;
@@ -22,16 +22,12 @@
             if($hotel['vote'] >= $_GET['vote']){
                 $temp_array [] = $hotel;
             }
-            elseif($_GET['vote'] == '0'){
+            elseif($_GET['vote'] === '0'){
                  $temp_array = $hotels;
             }
         } 
         $hotels = $temp_array ;
     }
-    
-
-
-
 ?>
 
 
@@ -76,21 +72,14 @@
                                             <option value="5">5 </option>
                                     </select>
                                 </div>
-
                                 <div class="form-label pt-2 ">
                                     <button type="submit" class="btn btn-md btn-success">Filtra</button>
                                 </div>
-
-
-
-
                             </form>
                         </div>
                     </div>
-                </div>
-               
+                </div>  
             </div>
-
         </header>
         <div class="container">
             <div class="row justify-content-center">
@@ -137,7 +126,6 @@
                         </table>
                     <?php } ?>
                 </div>
-
             </div>
         </div>
         
